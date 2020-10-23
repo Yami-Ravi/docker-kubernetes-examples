@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: basic-flask-app
+spec:
+  selector:
+    matchLabels:
+      app: basic-flask-app
+      version: 1.0.0
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: basic-flask-app
+        version: 1.0.0
+    spec:
+      containers:
+      - name: basic-flask-app
+        image: "yami99/pythonflask:v1"
+        env:
+        - name: "PORT"
+          value: "8080"

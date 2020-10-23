@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: basic-flask-app-ingress
+spec:
+  rules:
+  - host: kubernetes.docker.internal
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: basic-flask-app-service
+          servicePort: http
